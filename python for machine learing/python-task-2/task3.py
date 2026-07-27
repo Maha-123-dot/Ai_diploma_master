@@ -1,27 +1,24 @@
-email="Amit_ml@gmail.edu"
-def analyze_email(email):
+def clean_message(message):
     """
-    check email 
+    Clean message.
     Args:
-    email:str:user email.
-    Returns: None.
+        message (str): message to clean
+    Returns:
+        None
     """
-    #check count "@" in the email
-    if email.count("@")!=1:
-        print("valid email")
-    else:
-        print("invaild email")
-        
-     #user name 
-    user_name=email.split("@")[0]
-     #domain name
-    domain_name=email.split("@")[1].rsplit(".",1) [0]
-    print("Usre name:",user_name)
-    print("Domain name:",domain_name)
-     
-     
-     
-     
-     
-    # Placeholder for email analysis logic
-    pass
+    # clean message
+    message = message.replace("&", "")
+    message = message.replace("@", "")
+    message = message.replace("!", "")
+    message= message.replace("$","")
+    message= message.replace("*","")
+    message = message.replace("1234", "")
+    text= message.split()
+    first_text=text[0][::-1]
+    second_text=text[1]
+    second_text=second_text.replace("I","E")
+    second_text=second_text.replace("O","U")
+    print(first_text,second_text)
+    
+message = "&&&**$gnirtS PLIO!!@1234"
+clean_message(message)
